@@ -1,8 +1,5 @@
 package controller;
-import data.GroupStream;
-import data.Teacher;
-import data.Student;
-import data.User;
+import data.*;
 import service.DataService;
 import service.GroupStreamServiceImpl;
 import service.StudentServiceImpl;
@@ -22,12 +19,12 @@ public class Controller {
         studentService.create(student);
         studentService.read(student);
     }
-    public void readStudent(List<Teacher> teacher, List<Teacher> studGroup)throws IOException{
+    public void readStudent(List<Teacher> teacher, List<StudentGroup> studGroup)throws IOException{
         DataService.readGroup(teacher, studGroup);
 
     }
     public void GroupStreamSort(GroupStream groupStream){
-        GroupStreamServiceImpl.sortStream(groupStream.getGroupStudent());
+        GroupStreamServiceImpl.sortStream((GroupStream) groupStream.getGroupStudent());
     }
 
     }

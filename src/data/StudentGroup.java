@@ -6,14 +6,14 @@ import java.util.List;
 import java.util.Spliterator;
 import java.util.function.Consumer;
 
-public class StudentGroup implements Iterable<Teacher> {
-    List<Teacher> teacher;
-    List<Student> studGroup = new ArrayList<>(10);
-    List<Student> studGroup1 = new ArrayList<>(10);
-    List<Student> studGroup2 = new ArrayList<>(10);
+public class StudentGroup implements Iterable<StudentGroup> {
+    List<Teacher> teacher;// лист учителей
+    List<Student> studGroup = new ArrayList<>(10);//группы студентов
+    List<Student> studGroup1 = new ArrayList<>(10);//
+    List<Student> studGroup2 = new ArrayList<>(10);//
 
 
-    public StudentGroup(List<Teacher> teacher,List<Student> studGroup ){
+    public StudentGroup(List<Teacher> teacher,List<Student> studGroup ){//конструктор
         this.teacher = teacher;
         this.studGroup = studGroup;
 
@@ -22,6 +22,7 @@ public class StudentGroup implements Iterable<Teacher> {
     public StudentGroup() {
 
     }
+
 
     public List<Student> getStudGroup1() {
         return studGroup1;
@@ -48,18 +49,28 @@ public class StudentGroup implements Iterable<Teacher> {
     }
 
     @Override
-    public Iterator<Teacher> iterator() { // для класса Teacher через интерфейс Iterator вызывается метод iterator
+    public Iterator<StudentGroup> iterator() { // для класса через интерфейс Iterator вызывается метод iterator
         return new StudentGroupIterator(this);// экземпляр итератора возвращается
     }
 
     @Override
-    public void forEach(Consumer<? super Teacher> action) {
+    public void forEach(Consumer<? super StudentGroup> action) {
         Iterable.super.forEach(action);
     }
 
     @Override
-    public Spliterator<Teacher> spliterator() {
+    public Spliterator<StudentGroup> spliterator() {
         return Iterable.super.spliterator();
+    }
+
+    @Override
+    public String toString() {
+        return "StudentGroup{" +
+                "teacher=" + teacher +
+                ", studGroup=" + studGroup +
+                ", studGroup1=" + studGroup1 +
+                ", studGroup2=" + studGroup2 +
+                '}';
     }
 }
 

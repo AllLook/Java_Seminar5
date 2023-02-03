@@ -8,9 +8,9 @@ public class LogingCommandExecutableFactor extends CommandExecutableFactoryImpl 
     }
     @Override
     public CommandExecutable create (Command input){
-        System.out.println(input);
+        System.out.println(input);// печать текущего метода
         //CommandExecutable result = super.create(input);
         System.out.print("Geek");
-        return super.create(input);// или result
+        return super.create(input);// метод из класса родителя
     }
 }

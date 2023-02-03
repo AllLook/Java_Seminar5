@@ -11,7 +11,7 @@ public class GroupStreamServiceImpl {
 
 
     public static void sortStream(GroupStream groupStream){
-        Collections.sort(groupStream.getGroupStudent());
+        Collections.sort(groupStream.getGroupStudent()); // сортировка потока
     }
 
 }

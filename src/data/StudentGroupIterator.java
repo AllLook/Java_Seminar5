@@ -2,34 +2,29 @@ package data;
 import java.util.Iterator;
 
 
-public class StudentGroupIterator implements Iterator<Teacher> {
-    private StudentGroup studentGroup; // поле типа содержащая преподователя и лист студентов
-    private Iterator<Teacher> students;// итератор для поля содержащей все данные о персоне
+public class StudentGroupIterator implements Iterator<StudentGroup> {
+    private StudentGroup studentGroup = new StudentGroup(); // поле типа содержащая преподователя и лист студентов
+    private Iterator<StudentGroup> students;// итератор для поля содержащей все данные о персоне
 
     public StudentGroupIterator(StudentGroup studentGroup){
         this.studentGroup = studentGroup;
-        this.students = studentGroup.getStudGroup().iterator();// из класса StudentGroup применить итератор к листу studGroup
-
-
-
-
-        }
+    }
 
 
 
     @Override
     public boolean hasNext() {
-        return this.students.hasNext(); // пока есть следующий элемент из класса Teacher
+        return this.students.hasNext(); // пока есть следующий элемент
     }
 
     @Override
-    public Teacher next() { //  следующий элемент из класса Teacher
+    public StudentGroup next() { //  следующий элемент из класса Teacher
         return this.students.next();
-    }
+    } // элемент
 
     @Override
     public void remove() {
         this.students.remove();
-    }
+    } // удалить элеммент
 
 }

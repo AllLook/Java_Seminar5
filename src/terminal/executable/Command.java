@@ -1,5 +1,6 @@
 package terminal.executable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Command {
@@ -9,7 +10,25 @@ public class Command {
     private  List<String> arguments;
     private String mainFirstCommand;
 
-    public Command(){
+    public void setArguments(List<String> arguments) {
+        this.arguments = arguments;
+    }
+
+    public void setMainFirstCommand(String mainFirstCommand) {
+        this.mainFirstCommand = mainFirstCommand;
+    }
+
+    public List<String> getArguments() {
+        return arguments;
+    }
+
+    public String getMainFirstCommand() {
+        return mainFirstCommand;
+    }
+
+    public Command(List<String> commands){
+        this.mainFirstCommand = commands.get(0);
+        this.arguments = new ArrayList<>(commands);
 
     }
 
